@@ -1,0 +1,126 @@
+
+
+#canvas {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 15px;
+}
+
+#header {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 3px solid black;
+}
+
+.drop-btn {
+    order: 0;
+    width: 44%;
+    height: fit-content;
+    padding:3px
+}
+
+select {
+    border-radius: 100px;
+    height: 30px;
+    width: 130px;
+}
+
+#emp_name-title {
+    padding-top: 40px;
+    order: 1;
+    width: 30%;
+}
+
+span {
+    display: none;
+}
+td {
+    border: 2px solid
+}
+
+span ~ h1 {
+    color: red;
+}
+
+#spacer {
+    height: 1in;
+}
+
+#item_name-title {
+    text-align: center;
+}
+
+th{
+    padding-bottom: 25px;
+}
+
+td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+/*
+this code will not be used for the SBA. It is for the design for the
+main project. This code will be for the Hamburger Button. The drop-down
+button will replace this code for now
+*/
+#menu {
+    display: flex;
+    width: 25%;
+    height: 0%;
+    order: 1;
+    flex-direction: column;
+}
+
+#hamburger-btn {
+    margin: 5px;
+    display: inline-block;
+    cursor: pointer;
+    position: fixed;
+    z-index: 2;
+
+}
+
+#side-menu{
+    top: 55px;
+    background-color: white;
+    width: 300px;
+    height: 200px;
+    position: fixed;
+    z-index: 1;
+
+}
+
+h6 {
+    padding-bottom: 20px;
+    font-size: 133%;
+    padding: 20px;
+    background-color: lightgray;
+    border: 1px solid black;
+
+}
+
+#ham1, #ham2, #ham3 {
+    width: 35px;
+    height: 5px;
+    background-color: black;
+    margin: 6px 6px;
+    transition: .5s;
+
+}
+
+.change #ham1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change #ham2 {
+    opacity: 0;
+}
+
+.change #ham3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+}

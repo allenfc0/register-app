@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org http://www.thymeleaf.org
+  http://www.ultraq.net.nz/thymeleaf/layout https://www.ultraq.net.nz/thymeleaf/layout
+  http://www.thymeleaf.org/thymeleaf-extras-springsecurity4 http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      xmlns="http://www.w3.org/1999/html">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link type="text/css" rel="stylesheet" th:href="@{css/index_style.css}"/>
+
+    <!--External code-->
+    <script type="text/javascript" th:src="@{js/animation.js}" defer></script>
+<!--    <script type="text/javascript" th:src="@{js/sign_in_up.js}" defer></script>-->
+</head>
+<body>
+
+<div class="hero">
+    <!--<div id="logo">
+            <img src="../res/liquor-logo.jpg" alt="company_logo">
+    </div>-->
+    <div class="form-box">
+
+        <div class="button-box" id="form">
+            <div id="btn"></div>
+            <button type="button" class="toggle-btn" onclick="login()">Login</button>
+            <button type="button" class="toggle-btn" onclick="register()">Register</button>
+        </div>
+        <form id="login" class="input-group" th:action="@{/register}" th:object="${current_user}" method="get">
+            <!--registration message using bootstrap-->
+            <div th:if="${param.success}">
+                <div class="alert alert-info">You have successfully registered!</div>
+            </div>
+
+            <div th:if="${param.fail}">
+                <div class="alert alert-info">You have not successfully registered...</div>
+            </div>
+            <input type="text" id="luser" class="input-field" placeholder="Enter Email" required autofocus/>
+            <input type="password" id="lpass" class="input-field" placeholder="Enter Password" required />
+            <button type="submit" class="submit-btn" id="signButton" onclick="signIn()">Log in</button>
+        </form>
+        <form id="register" class="input-group" th:action="@{/process-new-user}" th:object="${current_user}" method="post">
+            <input type="text" class="input-field" id="fName" placeholder="First Name" th:field="*{firstName}" required />
+            <input type="text" class="input-field" id="lName" placeholder="Last Name" th:field="*{lastName}" required />
+            <input type="email" class="input-field" id="email" placeholder="Email" th:field="*{email}" required />
+            <span id="error-message">Please enter valid email</span>
+            <input type="text" class="input-field" id="password" placeholder="Enter Password" th:field="*{password}" required />
+            <button type="submit" class="submit-btn" id="regButton">Register</button>
+
+
+        </form>
+    </div>
+</div>
+
+</body>
+
+
+</html>

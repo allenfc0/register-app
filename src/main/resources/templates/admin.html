@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org http://www.thymeleaf.org
+  http://www.ultraq.net.nz/thymeleaf/layout https://www.ultraq.net.nz/thymeleaf/layout
+  http://www.thymeleaf.org/thymeleaf-extras-springsecurity4 http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8" />
+    <title>Employees</title>
+
+    <link type="text/css" rel="stylesheet" th:href="@{css/index_style.css}" />
+    <link type="text/css" rel="stylesheet" th:href="@{css/admin_style.css}" />
+    <!--<style>
+        span {
+            display: none;
+        }
+        td {
+            border: 2px solid
+        }
+
+        span ~ h1 {
+            color: red;
+        }
+    </style>-->
+</head>
+<body>
+<div class="hero" id="canvas">
+    <div id="header">
+        <div class="drop-btn">
+            <select name="Navigate" id="pages" onchange="location = this.value;">
+                <option value="">---Admin---</option>
+                <option value="admin">Admin</option>
+                <option value="register">Register</option>
+                <option value="index">Logout</option>
+            </select>
+        </div>
+        <div id="emp_name-title">
+            <span></span>
+            <h1>Employees List</h1>
+
+        </div>
+    </div>
+
+    <!--This table will update whenever a new employee is created/deleted-->
+    <!--All tablea will be created with spring boot-->
+    <div id="employeesTable">
+        <table style="width: 95%;">
+            <tr>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Address</th>
+                <th>Email</th>
+                <th>User</th>
+                <th>Password</th>
+            </tr>
+            <tr>
+                <td>Admin</td>
+                <td>_</td>
+                <td>Store #0001</td>
+                <td>admin@store.com</td>
+                <td>admin</td>
+                <td>apassword</td>
+            </tr>
+            <tr>
+                <td>Muhammad</td>
+                <td>Haseeb</td>
+                <td>487 Broadway Rd</td>
+                <td>haseeb@perscholas.com</td>
+                <td>mh4548</td>
+                <td>mhpassword</td>
+            </tr>
+            <tr>
+                <td>Jenny</td>
+                <td>Finch</td>
+                <td>2367 Paris Ave</td>
+                <td>jenny@perscholas.com</td>
+                <td>jf4384</td>
+                <td>jfpassword</td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="spacer"></div>
+    <!--This table will be put with the final project not the SBA-->
+    <!--This table will update whenever a new item is created/deleted-->
+
+    <div id="item_name-title">
+        <span></span>
+        <h1>Inventory List</h1>
+
+    </div>
+
+    <div id="itemsTable">
+        <table style="width: 90%;">
+            <tr>
+                <th>Item</th>
+                <th>Department</th>
+                <th>Price/Unit</th>
+                <th>Quantity</th>
+            </tr>
+            <tr>
+                <td>Cinnamon Roll</td>
+                <td>92</td>
+                <td>$1.15</td>
+                <td>23</td>
+            </tr>
+            <tr>
+                <td>Mickey's 16 Oz</td>
+                <td>46</td>
+                <td>$1.25</td>
+                <td>50</td>
+            </tr>
+            <tr>
+                <td>Marlboro Red</td>
+                <td>82</td>
+                <td>$7.62</td>
+                <td>16</td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+</body>
+</html>
