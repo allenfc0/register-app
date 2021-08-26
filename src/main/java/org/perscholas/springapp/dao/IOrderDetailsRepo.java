@@ -10,5 +10,5 @@ import java.util.Optional;
 
 @Repository
 public interface IOrderDetailsRepo extends JpaRepository<OrderDetails, Long>{
-    ArrayList<OrderDetails> findOrderDetailsByOrderId(long id);
+    ArrayList<OrderDetails> findAllProductsByOrderId(long id);
 }
