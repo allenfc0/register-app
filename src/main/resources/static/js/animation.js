@@ -19,6 +19,8 @@ function login() {
     x.style.left = "50px";
     y.style.left = "450px";
     z.style.left = "0px";
+
+
 }
 
 function hamburger_toggle(a) {
@@ -33,6 +35,8 @@ function hamburger_toggle(a) {
         console.log("hamburger was clicked");
     } else {
         console.log("hamburger was unclicked");
+
     }
+
 
 }

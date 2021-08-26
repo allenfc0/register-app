@@ -185,9 +185,11 @@ function calcCash() {
 //=================Clear Button
 document.getElementById("clr").onclick = function() {
     clearScreen();
+
 };
 
 function clearScreen() {
     oNum = "";
+
     document.getElementById('number').innerText = oNum;
 }

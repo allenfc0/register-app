@@ -92,6 +92,10 @@ h1 {
     background-color: lightgreen;
 }
 
+
 input, select {
+
     cursor: pointer;
 }
+
+

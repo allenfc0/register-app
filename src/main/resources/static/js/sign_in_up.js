@@ -88,6 +88,9 @@ function validateEmail() {
     } else {
         console.log("Invalid email");
         document.getElementById("error-message").style.display = "inline";
+
         return false;
+
     }
+
 }
