@@ -29,7 +29,7 @@ public class ProcessingController {
     public ProcessingController(UserService userService) {
         this.userService = userService;
     }
-
+    
     @PostMapping({"/process-new-user"})
     public String processRegistration(@ModelAttribute("current_user") @Valid User user, BindingResult bindingResult, Model model, String success, String fail) {
         log.warn("post mapping");
