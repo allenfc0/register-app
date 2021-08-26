@@ -33,19 +33,19 @@ public class ProcessingController {
     @PostMapping({"/process-new-user"})
     public String processRegistration(@ModelAttribute("current_user") @Valid User user, BindingResult bindingResult, Model model, String success, String fail) {
         log.warn("post mapping");
-        if (success != null) {
+        /*if (success != null) {
             model.addAttribute("message", "You have been registered successfully!");
         }
 
         if (fail != null) {
             model.addAttribute("message", "You have been registered unsuccessfully!");
-        }
+        }*/
         if(bindingResult.hasErrors()){
             log.warn(bindingResult.getAllErrors().toString());
             log.warn("returned index from post");
             return "index";
         }
-        userService.addUser(user);
+        userService.save(user);
         return "redirect:/index?success";
     }
 

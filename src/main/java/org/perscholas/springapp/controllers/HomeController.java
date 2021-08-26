@@ -62,8 +62,24 @@ public class HomeController {
     //mapping for register
     @GetMapping({"/register"})
     public String showRegister(Model model) {
-        log.warn("requested register.html");
         return "register";
+        /*UserService userService = new UserService();
+        if (userService.findByEmail("admin@store.com").getEmail().equals("admin@store.com")) {
+            log.warn("requested register.html");
+            return "register";
+        }
+
+
+        return "access-denied";*/
+
+
+    }
+
+    //mapping for register
+    @GetMapping({"/user-register"})
+    public String showUserRegister(Model model) {
+        log.warn("requested user register.html");
+        return "user-register";
     }
 
     //current model attribute
@@ -78,7 +94,7 @@ public class HomeController {
     public void init(){
         //added admin
         User user = new User("admin", "store", "admin@store.com", "pass");
-        userService.addUser(user);
+        userService.save(user);
 
         log.warn("Constructed! lol");
     }
