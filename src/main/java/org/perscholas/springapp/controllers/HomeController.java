@@ -36,7 +36,6 @@ public class HomeController {
         log.warn("requested index.html");
         //model.addAttribute("user", new User());
 
-
         return "index";
     }
 
