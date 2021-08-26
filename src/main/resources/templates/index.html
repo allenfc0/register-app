@@ -39,6 +39,7 @@
             <button type="button" class="toggle-btn" onclick="register()">Register</button>
         </div>
         <form id="login" class="input-group" th:action="@{/register}" th:object="${current_user}" method="get">
+
             <!--registration message using bootstrap-->
             <div th:if="${param.success}">
                 <div class="alert alert-info">You have successfully registered!</div>
