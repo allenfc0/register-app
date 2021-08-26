@@ -2,11 +2,10 @@ package org.perscholas.springapp.services;
 
 import lombok.extern.slf4j.Slf4j;
 import org.perscholas.springapp.dao.IUserRepo;
+import org.perscholas.springapp.models.Order;
 import org.perscholas.springapp.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
-
 import javax.transaction.Transactional;
 import java.util.List;
 
@@ -15,6 +14,7 @@ import java.util.List;
 @Transactional
 public class UserService {
 
+
     private IUserRepo userRepo;
 
     @Autowired
@@ -22,31 +22,36 @@ public class UserService {
         this.userRepo = userRepo;
     }
 
+    // find the user email from the database
     public User findByEmail(String email){
-        if (userRepo.findByEmail(email).isPresent()) {
-            return userRepo.findByEmail(email).get();
-        }
-        return null;
+        return userRepo.findByEmail(email);
+        //userRepo.findByEmail(email);
     }
 
-    public User findById(long id) {
-        return userRepo.findById(id);
+    // find the user id from the database
+    public User findUserById(long id) {
+        System.out.println("Im in the find method!");
+        return userRepo.findUserById(id);
     }
 
     // save to database
     //this method will be tested
-    public User addUser(User user){
-        log.warn("addUser method");
-        return userRepo.save(user);
+    public void save(User user) {
+        userRepo.save(user);
     }
 
     // delete from database
     //this method will be tested
-    public void deleteUserById(long id){
-        User foundUser = findById(id);
-        userRepo.delete(foundUser);
+    public User deleteUserById(long id){
+        //User foundUser = findById(id);
+        return userRepo.deleteUserById(id);
     }
 
+    //get all orders that this user has made
+    public List<Order> getAllOrdersFromUserId(long id) {
+         User foundUser = findUserById(id);
+         return foundUser.getOrderList();
 
+    }
 
 }
